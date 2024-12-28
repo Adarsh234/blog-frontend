@@ -28,7 +28,7 @@ const SinglePostPage = () => {
     <div className="flex flex-col gap-8">
       {/* Details */}
       <div className="flex gap-8">
-        <div className="lg:w-3/5 flex flex-col gap-8">
+        <div className="lg:w-3/5 flex flex-col gap-8 mt-32">
           <h1 className="text-xl md:text-3xl xl:text-4xl 2xl:text-5xl font-semibold">
             {data.title}
           </h1>
@@ -43,7 +43,7 @@ const SinglePostPage = () => {
         </div>
         {data.img && (
           <div className="hidden lg:block w-2/5">
-            <Image src={data.img} w="600" className="rounded-2xl" />
+            <Image src={data.img} w="400" className="rounded-2xl mt-12 ml-12" />
           </div>
         )}
       </div>

@@ -6,16 +6,27 @@ import { SignedIn, SignedOut, useAuth, UserButton } from '@clerk/clerk-react'
 const Navbar = () => {
   const [open, setOpen] = useState(false)
 
-  const { getToken } = useAuth()
+  // const { getToken } = useAuth()
+
+  // // useEffect(() => {
+  // //   getToken().then((token) => console.log(token))
+  // // },
 
   useEffect(() => {
-    getToken().then((token) => console.log(token))
-  }, [])
+    if (open) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+    }
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [open])
 
   return (
     <div className="w-full h-16 md:h-20 flex items-center justify-between">
       {/* LOGO */}
-      <Link to="/" className="flex items-center gap-4 text-2xl font-bold">
+      <Link to="/" className="flex items-center gap-4 text-2xl font-bold ">
         <Image src="logo.png" alt="Lama Logo" w={32} h={32} />
         <span>IBlog</span>
       </Link>
@@ -48,7 +59,7 @@ const Navbar = () => {
         </div>
         {/* MOBILE LINK LIST */}
         <div
-          className={`w-full h-screen bg-[#e6e6ff] flex flex-col items-center justify-center gap-8 font-medium text-lg absolute top-16 transition-all ease-in-out ${
+          className={`w-full h-screen bg-[#e6e6ff] flex flex-col items-center justify-center gap-12 font-semibold text-2xl absolute top-16 transition-all ease-in-out ${
             open ? '-right-0' : '-right-[100%]'
           }`}
         >
@@ -64,11 +75,16 @@ const Navbar = () => {
           <Link to="/" onClick={() => setOpen(false)}>
             About
           </Link>
-          <Link to="/login" onClick={() => setOpen(false)}>
-            <button className="py-2 px-4 rounded-3xl bg-blue-800 text-white">
-              Login 👋
-            </button>
-          </Link>
+          <SignedOut>
+            <Link to="/login">
+              <button className="py-2 px-4 rounded-3xl bg-blue-800 text-white">
+                Login 👋
+              </button>
+            </Link>
+          </SignedOut>
+          <SignedIn>
+            <UserButton />
+          </SignedIn>
         </div>
       </div>
       {/* DESKTOP MENU */}
