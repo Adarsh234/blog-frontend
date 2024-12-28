@@ -59,9 +59,10 @@ const Navbar = () => {
         </div>
         {/* MOBILE LINK LIST */}
         <div
-          className={`w-full h-screen bg-[#e6e6ff] flex flex-col items-center justify-center gap-12 font-semibold text-2xl absolute top-16 transition-all ease-in-out ${
-            open ? '-right-0' : '-right-[100%]'
+          className={`w-screen h-svh overflow-y-hidden bg-[#e6e6ff] flex flex-col  items-center justify-center gap-12 font-semibold text-2xl fixed left-0  top-16 transition-all ease-in-out ${
+            open ? 'translate-x-0' : 'translate-x-full'
           }`}
+          style={{ position: 'fixed', zIndex: 10 }}
         >
           <Link to="/" onClick={() => setOpen(false)}>
             Home
