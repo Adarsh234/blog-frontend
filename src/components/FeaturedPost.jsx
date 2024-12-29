@@ -46,7 +46,7 @@ const FeaturedPosts = () => {
         {/* title */}
         <Link
           to={posts[0].slug}
-          className="text-xl lg:text-3xl font-semibold lg:font-bold"
+          className="text-3xl lg:text-3xl font-semibold lg:font-bold"
         >
           {posts[0].title}
         </Link>
