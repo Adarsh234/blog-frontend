@@ -50,9 +50,10 @@ const SinglePostPage = () => {
       {/* Content */}
       <div className="flex flex-col md:flex-row gap-12">
         {/* TEXT */}
-        <div className="lg:text-lg flex flex-col gap-6 text-justify">
-          {data.content}
-        </div>
+        <div
+          className="lg:text-lg flex flex-col gap-6 text-justify"
+          dangerouslySetInnerHTML={{ __html: data.content }}
+        />
         {/* MENU */}
         <div className="px-4 h-max sticky top-8">
           <h1 className=" mb-4 text-sm font-medium">Author</h1>
