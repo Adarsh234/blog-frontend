@@ -24,6 +24,7 @@ const SinglePostPage = () => {
   if (error) return 'Something went wrong!!!'
   if (!data) return 'Post Not Found!!!'
 
+  console.log(data)
   return (
     <div className="flex flex-col gap-8">
       {/* Details */}
@@ -58,15 +59,14 @@ const SinglePostPage = () => {
         <div className="px-4 h-max sticky top-8">
           <h1 className=" mb-4 text-sm font-medium">Author</h1>
           <div className="flex flex-col gap-4">
-            <div className="flex items-center gap-8 ">
-              {data.user.img && (
-                <Image
-                  src={data.user.img}
-                  className="w-12 h-12 rounded-full object-cover"
-                  w="48"
-                  h="48"
-                />
-              )}
+            <div className="flex flex-col gap-4 ">
+              <img
+                src={data.user.profile_img || 'https://via.placeholder.com/48'}
+                alt={`${data.user.username}'s profile`}
+                className="w-12 h-12 rounded-full object-cover"
+                w="48"
+                h="48"
+              />
               <Link className="text-blue-800">{data.user.username}</Link>
             </div>
             <p className="text-sm text-gray-500">Lorem ipsum dolor sit amet.</p>
