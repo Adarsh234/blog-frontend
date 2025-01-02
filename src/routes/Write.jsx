@@ -100,6 +100,7 @@ const Write = () => {
             <option value="development">Development</option>
             <option value="databases">Databases</option>
             <option value="seo">Search Engines</option>
+            <option value="cyber-security">Cyber Security</option>
             <option value="marketing">Marketing</option>
           </select>
         </div>
