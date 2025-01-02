@@ -61,7 +61,10 @@ const SinglePostPage = () => {
           <div className="flex flex-col gap-4">
             <div className="flex flex-col gap-4 ">
               <img
-                src={data.user.profile_img || 'https://via.placeholder.com/48'}
+                src={
+                  data.user.profile_img ||
+                  'https://cdn.pixabay.com/photo/2017/11/10/05/48/user-2935527_1280.png'
+                }
                 alt={`${data.user.username}'s profile`}
                 className="w-12 h-12 rounded-full object-cover"
                 w="48"

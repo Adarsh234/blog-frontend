@@ -38,7 +38,10 @@ const Comment = ({ comment, postId }) => {
     <div className="p-4 bg-slate-50 rounded-xl mb-8">
       <div className="flex items-center gap-4">
         <img
-          src={comment.user.profile_img || 'https://via.placeholder.com/48'}
+          src={
+            comment.user.profile_img ||
+            'https://cdn.pixabay.com/photo/2017/11/10/05/48/user-2935527_1280.png'
+          }
           alt={`${comment.user.username}'s comment`}
           className="w-10 h-10 rounded-full object-cover"
           w="40"
