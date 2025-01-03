@@ -95,7 +95,7 @@ const FeaturedPosts = () => {
               </div>
               {/* title */}
               <Link
-                to={posts[1].slug}
+                to="https://iblog-website.netlify.app/exploring-the-latest-chrome-ai-features:-window.ai-deep-dive"
                 className="text-base sm:text-lg md:text-2xl lg:text-xl xl:text-2xl font-medium"
               >
                 {posts[1].title}
@@ -127,7 +127,7 @@ const FeaturedPosts = () => {
               </div>
               {/* title */}
               <Link
-                to={posts[1].slug}
+                to={posts[2].slug}
                 className="text-base sm:text-lg md:text-2xl lg:text-xl xl:text-2xl font-medium"
               >
                 {posts[2].title}
