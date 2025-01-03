@@ -3,6 +3,7 @@ import Image from './Image'
 import axios from 'axios'
 import { useQuery } from '@tanstack/react-query'
 import { format } from 'timeago.js'
+import { TailSpin } from 'react-loader-spinner'
 
 const fetchPost = async () => {
   const res = await axios.get(
@@ -17,7 +18,24 @@ const FeaturedPosts = () => {
     queryFn: () => fetchPost(),
   })
 
-  if (isPending) return 'loading...'
+  if (isPending)
+    return (
+      <div className="flex flex-col gap-8 items-center mt-12">
+        <TailSpin
+          height="160"
+          width="160"
+          color="#3f66dd"
+          ariaLabel="tail-spin-loading"
+          radius="1"
+          wrapperStyle={{}}
+          wrapperClass=""
+          visible={true}
+        />
+        <div className="text-xl md:text-3xl xl:text-4xl 2xl:text-5xl font-semibold">
+          Loading.....
+        </div>
+      </div>
+    )
   if (error) return 'Something went wrong!' + error.message
 
   const posts = data.posts

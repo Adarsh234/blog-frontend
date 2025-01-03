@@ -3,6 +3,7 @@ import { useInfiniteQuery, useQuery } from '@tanstack/react-query'
 import axios from 'axios'
 import InfiniteScroll from 'react-infinite-scroll-component'
 import { useSearchParams } from 'react-router-dom'
+import { TailSpin } from 'react-loader-spinner'
 
 const fetchPosts = async (pageParam, searchParams) => {
   const searchParamsObj = Object.fromEntries([...searchParams])
@@ -35,7 +36,24 @@ const PostList = () => {
   })
 
   // if (status === "loading") return "Loading...";
-  if (isFetching) return 'Loading...'
+  if (isFetching)
+    return (
+      <div className="flex flex-col gap-8 items-center mt-12">
+        <TailSpin
+          height="160"
+          width="160"
+          color="#3f66dd"
+          ariaLabel="tail-spin-loading"
+          radius="1"
+          wrapperStyle={{}}
+          wrapperClass=""
+          visible={true}
+        />
+        <div className="text-xl md:text-3xl xl:text-4xl 2xl:text-5xl font-semibold">
+          Loading.....
+        </div>
+      </div>
+    )
 
   // if (status === "error") return "Something went wrong!";
   if (error) return 'Something went wrong!'

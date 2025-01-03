@@ -5,6 +5,7 @@ import Search from '../components/Search'
 import Comments from '../components/Comments'
 import { useQuery } from '@tanstack/react-query'
 import axios from 'axios'
+import { TailSpin } from 'react-loader-spinner'
 import { format } from 'timeago.js'
 
 const fetchPost = async (slug) => {
@@ -20,7 +21,24 @@ const SinglePostPage = () => {
     queryFn: () => fetchPost(slug),
   })
 
-  if (isPending) return 'Loading....'
+  if (isPending)
+    return (
+      <div className="flex flex-col gap-8 items-center mt-72">
+        <TailSpin
+          height="180"
+          width="180"
+          color="#3f66dd"
+          ariaLabel="tail-spin-loading"
+          radius="1"
+          wrapperStyle={{}}
+          wrapperClass=""
+          visible={true}
+        />
+        <div className="text-xl md:text-3xl xl:text-4xl 2xl:text-5xl font-semibold">
+          Loading.....
+        </div>
+      </div>
+    )
   if (error) return 'Something went wrong!!!'
   if (!data) return 'Post Not Found!!!'
 
@@ -29,7 +47,7 @@ const SinglePostPage = () => {
     <div className="flex flex-col gap-8">
       {/* Details */}
       <div className="flex gap-8">
-        <div className="lg:w-3/5 flex flex-col gap-8 mt-32">
+        <div className="lg:w-3/5 flex flex-col gap-8 mt-20">
           <h1 className="text-xl md:text-3xl xl:text-4xl 2xl:text-5xl font-semibold">
             {data.title}
           </h1>
