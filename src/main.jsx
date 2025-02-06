@@ -8,6 +8,7 @@ import Write from './routes/Write.jsx'
 import LoginPage from './routes/LoginPage.jsx'
 import Register from './routes/Register.jsx'
 import SinglePostPage from './routes/SinglePostPage.jsx'
+import About from './routes/Aboutpage.jsx'
 import MainLayout from './Layouts/MainLayout.jsx'
 import { ClerkProvider } from '@clerk/clerk-react'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
@@ -41,6 +42,10 @@ const router = createBrowserRouter([
       {
         path: '/write',
         element: <Write />,
+      },
+      {
+        path: '/about',
+        element: <About />,
       },
       {
         path: '/login',
