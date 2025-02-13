@@ -20,7 +20,7 @@ function Myself() {
         </p>
         <br />
         <a
-          href="https://arjun-gupta-developer.vercel.app/"
+          href="https://knowaboutadarsh.netlify.app/"
           target="_blank"
           className="text-lightBlue text-xl justify-center gap-1 flex items-center"
         >

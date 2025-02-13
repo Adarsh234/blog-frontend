@@ -6,6 +6,7 @@ import { IoMailOutline } from 'react-icons/io5'
 import { BsTwitterX } from 'react-icons/bs'
 import './Aboutpage.css'
 import Myself from './Myself/Myself'
+import Footer from './Footer'
 
 const About = () => {
   return (
@@ -104,6 +105,7 @@ const About = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   )
 }
